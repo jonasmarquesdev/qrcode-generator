@@ -11,7 +11,25 @@
 <body>
     
     <script>
-        // ...
+        new Vue({
+            el: '#app',
+            data: {
+                title: 'QRCODE Generator',
+                text: 'https://github.com/jonasmarquesdev/qrcode-generator',
+                qrcode: new QRious({ size: 300 })
+            },
+            computed: {
+                newQRCODE() {
+                    this.qrcode.value = this.text
+                    return this.qrcode.toDataURL()
+                }
+            },
+            methods: {
+                onData(event) {
+                    this.text = event.target.value
+                }
+            }
+        })
     </script>
 </body>
 </html>
