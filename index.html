@@ -5,11 +5,30 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <script src="src/js/vue.min.js"></script>
+    <script src="src/js/qrious.min.js"></script>
+
+    <link rel="stylesheet" href="src/style/style.css">
+
     <title>QRCODE - Generator</title>
     
 </head>
 <body>
-    
+    <div id="app">
+        <h1>{{ title }}</h1>
+        <div>
+            <input 
+                type="text" 
+                size="25"
+                placeholder="type to generate..."
+                :value="text" 
+                @input="onData"
+            >
+        </div>
+        <div v-if="text" class="output">
+            <img :src="newQRCODE" alt="QRCode">
+        </div>
+    </div>
     <script>
         new Vue({
             el: '#app',
