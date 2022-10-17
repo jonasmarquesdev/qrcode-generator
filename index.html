@@ -21,8 +21,7 @@
                 type="text" 
                 size="25"
                 placeholder="type to generate..."
-                :value="text" 
-                @input="onData"
+                v-model="text"
             >
         </div>
         <div v-if="text" class="output">
@@ -41,11 +40,6 @@
                 newQRCODE() {
                     this.qrcode.value = this.text
                     return this.qrcode.toDataURL()
-                }
-            },
-            methods: {
-                onData(event) {
-                    this.text = event.target.value
                 }
             }
         })
